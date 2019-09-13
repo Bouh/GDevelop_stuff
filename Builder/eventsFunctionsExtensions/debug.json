@@ -1,0 +1,171 @@
+{
+  "author": "@Bouh",
+  "description": "Showing info in console",
+  "extensionNamespace": "",
+  "fullName": "Console logger",
+  "name": "DEBUG",
+  "shortDescription": "",
+  "tags": "javascript, console, debugging",
+  "version": "0.0.1",
+  "eventsFunctions": [
+    {
+      "description": "Text showing in console",
+      "fullName": "console.log()",
+      "functionType": "Action",
+      "name": "Log",
+      "sentence": "console.log( _PARAM1_ )",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "",
+          "comment2": ""
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "\nconst text_arg = eventsFunctionContext.getArgument(\"text_arg\");\nconsole.log(text_arg);",
+          "parameterObjects": "",
+          "useStrict": true
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Text to display in console logger",
+          "name": "text_arg",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "string"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "",
+      "fullName": "",
+      "functionType": "Action",
+      "name": "Add_Debug_line",
+      "sentence": "Affiche _PARAM2_ : _PARAM3_ dans le texte _PARAM1_",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarGlobalTxt"
+              },
+              "parameters": [
+                "DEBUG_TEXT",
+                "+",
+                "GetArgumentAsString(\"description\") + \" : \" + GetArgumentAsString(\"valeur\") + NewLine() + \"  \""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "",
+          "name": "object_text",
+          "optional": false,
+          "supplementaryInformation": "TextObject::Text",
+          "type": "objectList"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Description de la ligne de debug",
+          "name": "description",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "string"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Valeur de la ligne de debug",
+          "name": "valeur",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "string"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "",
+      "fullName": "",
+      "functionType": "Action",
+      "name": "Show_Debug_Text",
+      "sentence": "Affiche les lignes de debug de _PARAM1_",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "TextObject::String"
+              },
+              "parameters": [
+                "object_text",
+                "=",
+                "\"Debug information :\" + NewLine() + \n \"  \" + GlobalVariableString(DEBUG_TEXT) + NewLine()"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarGlobalTxt"
+              },
+              "parameters": [
+                "DEBUG_TEXT",
+                "=",
+                "\"\""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "",
+          "name": "object_text",
+          "optional": false,
+          "supplementaryInformation": "TextObject::Text",
+          "type": "objectList"
+        }
+      ],
+      "objectGroups": []
+    }
+  ],
+  "eventsBasedBehaviors": []
+}

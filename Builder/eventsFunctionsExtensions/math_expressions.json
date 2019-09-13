@@ -1,0 +1,62 @@
+{
+  "author": "",
+  "description": "",
+  "extensionNamespace": "",
+  "fullName": "",
+  "name": "Math_expressions",
+  "shortDescription": "",
+  "tags": "",
+  "version": "",
+  "eventsFunctions": [
+    {
+      "description": "Retourne la valeur correspondant à un pourcentage voulu.",
+      "fullName": "Pourcentage",
+      "functionType": "Expression",
+      "name": "Pourcentage",
+      "sentence": "",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SetReturnNumber"
+              },
+              "parameters": [
+                "(GetArgumentAsNumber(\"valeur\")/100)*GetArgumentAsNumber(\"pourcentage\")"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Valeur sur laquelle on souhaite un pourcentage.",
+          "name": "valeur",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Pourcentage de la valeur voulu.",
+          "name": "pourcentage",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    }
+  ],
+  "eventsBasedBehaviors": []
+}

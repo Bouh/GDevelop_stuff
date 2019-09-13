@@ -1,0 +1,861 @@
+{
+  "b": 57,
+  "disableInputWhenNotFocused": true,
+  "mangledName": "Ecran_95de_95d_233but",
+  "name": "Ecran_de_début",
+  "oglFOV": 90,
+  "oglZFar": 500,
+  "oglZNear": 1,
+  "r": 57,
+  "standardSortMethod": true,
+  "stopSoundsOnStartup": true,
+  "title": "",
+  "v": 57,
+  "uiSettings": {
+    "grid": false,
+    "gridB": 255,
+    "gridG": 180,
+    "gridHeight": 32,
+    "gridOffsetX": 0,
+    "gridOffsetY": 0,
+    "gridR": 158,
+    "gridWidth": 32,
+    "snap": true,
+    "windowMask": false,
+    "zoomFactor": 1
+  },
+  "objectsGroups": [],
+  "variables": [],
+  "instances": [
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 0,
+      "layer": "",
+      "locked": false,
+      "name": "Instruction",
+      "width": 0,
+      "x": 317,
+      "y": 448,
+      "zOrder": 1,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 0,
+      "layer": "",
+      "locked": false,
+      "name": "Logo_du_jeu",
+      "width": 0,
+      "x": 188,
+      "y": 45,
+      "zOrder": 0,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 125,
+      "layer": "",
+      "locked": false,
+      "name": "Welcome",
+      "width": 516,
+      "x": 169,
+      "y": 217,
+      "zOrder": 2,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 0,
+      "layer": "",
+      "locked": false,
+      "name": "DEBUG_TEXT",
+      "width": 0,
+      "x": 23,
+      "y": 25,
+      "zOrder": 3,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 0,
+      "layer": "",
+      "locked": false,
+      "name": "CORE_GAME_BEHAVIORS",
+      "width": 0,
+      "x": -429,
+      "y": 4,
+      "zOrder": 4,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": [
+        {
+          "name": "Transition_scene",
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "bold": true,
+      "italic": false,
+      "name": "Instruction",
+      "smoothed": true,
+      "tags": "",
+      "type": "TextObject::Text",
+      "underlined": false,
+      "variables": [],
+      "behaviors": [
+        {
+          "name": "Tween",
+          "type": "Tween::TweenBehavior"
+        }
+      ],
+      "string": "[Instruction]",
+      "font": "",
+      "characterSize": 20,
+      "color": {
+        "b": 0,
+        "g": 0,
+        "r": 0
+      }
+    },
+    {
+      "name": "Logo_du_jeu",
+      "tags": "",
+      "type": "Sprite",
+      "updateIfNotVisible": false,
+      "variables": [
+        {
+          "name": "Transition_scene",
+          "value": "1"
+        }
+      ],
+      "behaviors": [
+        {
+          "name": "Tween",
+          "type": "Tween::TweenBehavior"
+        }
+      ],
+      "animations": [
+        {
+          "name": "Logo_du_jeu",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": false,
+                  "image": "Logo_du_jeu-1-1.png",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bold": true,
+      "italic": true,
+      "name": "Welcome",
+      "smoothed": true,
+      "tags": "",
+      "type": "TextObject::Text",
+      "underlined": false,
+      "variables": [],
+      "behaviors": [],
+      "string": "Welcome",
+      "font": "",
+      "characterSize": 100,
+      "color": {
+        "b": 0,
+        "g": 0,
+        "r": 0
+      }
+    }
+  ],
+  "events": [
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "disabled": false,
+      "folded": false,
+      "name": "DEBUG informations in game",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "DEBUG::Add_Debug_line"
+              },
+              "parameters": [
+                "",
+                "DEBUG_TEXT",
+                "\"Welcome Width\"",
+                "ToString(Welcome.Width())",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "DEBUG::Add_Debug_line"
+              },
+              "parameters": [
+                "",
+                "DEBUG_TEXT",
+                "\"Welcome Height\"",
+                "ToString(Welcome.Height())",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "DEBUG::Add_Debug_line"
+              },
+              "parameters": [
+                "",
+                "DEBUG_TEXT",
+                "\"Welcome pos\"",
+                "ToString(Welcome.X()) + \":\" + ToString(Welcome.Y())\n\n",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "DEBUG::Add_Debug_line"
+              },
+              "parameters": [
+                "",
+                "DEBUG_TEXT",
+                "\"Mouse pos\"",
+                "ToString(MouseX(, )) + \":\" + ToString(MouseY(, ))",
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "DEBUG::Show_Debug_Text"
+              },
+              "parameters": [
+                "",
+                "DEBUG_TEXT",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [],
+          "events": []
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Comment",
+      "color": {
+        "b": 109,
+        "g": 230,
+        "r": 255,
+        "textB": 0,
+        "textG": 0,
+        "textR": 0
+      },
+      "comment": "Center and align object on screen",
+      "comment2": ""
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Actions_simplifier::Au_debut_de_la_scene_une_fois"
+          },
+          "parameters": [
+            "",
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "TextObject::String"
+          },
+          "parameters": [
+            "Instruction",
+            "=",
+            "\"Appuyer sur une touche pour commencer\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "MettreXY"
+          },
+          "parameters": [
+            "Logo_du_jeu",
+            "=",
+            "0",
+            "=",
+            "0"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangeWidth"
+          },
+          "parameters": [
+            "Logo_du_jeu",
+            "=",
+            "SceneWindowWidth()"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ChangeHeight"
+          },
+          "parameters": [
+            "Logo_du_jeu",
+            "=",
+            "SceneWindowHeight()"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "Actions_simplifier::Center_un_objet_largeur"
+          },
+          "parameters": [
+            "Instruction",
+            "Instruction",
+            "SceneWindowWidth()",
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "TextObject::ChangeColor"
+          },
+          "parameters": [
+            "Instruction",
+            "\"255;255;255\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "TextObject::SetOutline"
+          },
+          "parameters": [
+            "Instruction",
+            "\"0;0;0\"",
+            "6"
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "Actions_simplifier::Center_un_objet_hauteur"
+          },
+          "parameters": [
+            "Instruction",
+            "Welcome",
+            "SceneWindowHeight()",
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "TextObject::ChangeColor"
+          },
+          "parameters": [
+            "Welcome",
+            "\"255;255;255\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "TextObject::SetOutline"
+          },
+          "parameters": [
+            "Welcome",
+            "\"0;0;0\"",
+            "12"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Comment",
+      "color": {
+        "b": 109,
+        "g": 230,
+        "r": 255,
+        "textB": 0,
+        "textG": 0,
+        "textR": 0
+      },
+      "comment": "------------------------------\n------------------------------",
+      "comment2": ""
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Comment",
+      "color": {
+        "b": 109,
+        "g": 230,
+        "r": 255,
+        "textB": 0,
+        "textG": 0,
+        "textR": 0
+      },
+      "comment": "Check center height for text object, maybe bugged in position.\nMy fonction or height size from text object have wrong value",
+      "comment2": ""
+    },
+    {
+      "disabled": true,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Actions_simplifier::Center_un_objet_largeur"
+          },
+          "parameters": [
+            "Instruction",
+            "Welcome",
+            "SceneWindowWidth()",
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Comment",
+      "color": {
+        "b": 109,
+        "g": 230,
+        "r": 255,
+        "textB": 0,
+        "textG": 0,
+        "textR": 0
+      },
+      "comment": "------------------------------\n------------------------------",
+      "comment2": ""
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Comment",
+      "color": {
+        "b": 109,
+        "g": 230,
+        "r": 255,
+        "textB": 0,
+        "textG": 0,
+        "textR": 0
+      },
+      "comment": "Transition AND Input handle before interaction (needed before video or sound)",
+      "comment2": ""
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "AnyKeyPressed"
+          },
+          "parameters": [
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Tween::AddObjectVariableTween"
+          },
+          "parameters": [
+            "CORE_GAME_BEHAVIORS",
+            "Tween",
+            "\"Transition_scene_to_black\"",
+            "Transition_scene",
+            "1",
+            "0",
+            "\"easeInQuad\"",
+            "2000",
+            "no"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Tween::HasFinished"
+          },
+          "parameters": [
+            "CORE_GAME_BEHAVIORS",
+            "Tween",
+            "\"Transition_scene_to_black\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": true,
+            "value": "Tween::IsPlaying"
+          },
+          "parameters": [
+            "CORE_GAME_BEHAVIORS",
+            "Tween",
+            "\"Transition_scene_to_black\""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Scene"
+          },
+          "parameters": [
+            "",
+            "\"Game\"",
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Comment",
+      "color": {
+        "b": 109,
+        "g": 230,
+        "r": 255,
+        "textB": 0,
+        "textG": 0,
+        "textR": 0
+      },
+      "comment": "Animation text [Instruction]",
+      "comment2": ""
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Actions_simplifier::Au_debut_de_la_scene_une_fois"
+          },
+          "parameters": [
+            "",
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Tween::AddObjectPositionYTween"
+          },
+          "parameters": [
+            "Instruction",
+            "Tween",
+            "\"instruction_move_y_down\"",
+            "Instruction.Y()+10",
+            "\"easeInOutQuad\"",
+            "1000",
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Tween::HasFinished"
+          },
+          "parameters": [
+            "Instruction",
+            "Tween",
+            "\"instruction_move_y_down\""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Tween::RemoveTween"
+          },
+          "parameters": [
+            "Instruction",
+            "Tween",
+            "\"instruction_move_y_down\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "Tween::AddObjectPositionYTween"
+          },
+          "parameters": [
+            "Instruction",
+            "Tween",
+            "\"instruction_move_y_up\"",
+            "Instruction.Y()-15",
+            "\"easeInOutQuad\"",
+            "1000",
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Tween::HasFinished"
+          },
+          "parameters": [
+            "Instruction",
+            "Tween",
+            "\"instruction_move_y_up\""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "Tween::RemoveTween"
+          },
+          "parameters": [
+            "Instruction",
+            "Tween",
+            "\"instruction_move_y_up\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "Tween::AddObjectPositionYTween"
+          },
+          "parameters": [
+            "Instruction",
+            "Tween",
+            "\"instruction_move_y_down\"",
+            "Instruction.Y()+15",
+            "\"easeInOutQuad\"",
+            "1000",
+            ""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [],
+      "actions": [],
+      "events": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "disabled": false,
+      "folded": false,
+      "name": "Transition to blackscreen and switch on other scene with layer effect",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SetLayerEffectParameter"
+              },
+              "parameters": [
+                "",
+                "",
+                "\"Brightness_Effect\"",
+                "\"brightness\"",
+                "CORE_GAME_BEHAVIORS.Variable(Transition_scene)"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": []
+    }
+  ],
+  "layers": [
+    {
+      "name": "",
+      "visibility": true,
+      "cameras": [
+        {
+          "defaultSize": true,
+          "defaultViewport": true,
+          "height": 0,
+          "viewportBottom": 1,
+          "viewportLeft": 0,
+          "viewportRight": 1,
+          "viewportTop": 0,
+          "width": 0
+        }
+      ],
+      "effects": [
+        {
+          "effectName": "Brightness",
+          "name": "Brightness_Effect",
+          "parameters": {
+            "brightness": 0,
+            "opacity": 1
+          }
+        }
+      ]
+    }
+  ],
+  "behaviorsSharedData": [
+    {
+      "name": "Tween",
+      "type": "Tween::TweenBehavior"
+    }
+  ]
+}

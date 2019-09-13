@@ -1,0 +1,92 @@
+{
+  "associatedLayout": "Game",
+  "lastChangeTimeStamp": 0,
+  "name": "TEST",
+  "events": [
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Comment",
+      "color": {
+        "b": 109,
+        "g": 230,
+        "r": 255,
+        "textB": 0,
+        "textG": 0,
+        "textR": 0
+      },
+      "comment": "TEST",
+      "comment2": ""
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Comment",
+      "color": {
+        "b": 109,
+        "g": 230,
+        "r": 255,
+        "textB": 0,
+        "textG": 0,
+        "textR": 0
+      },
+      "comment": "Pour les chemins/routes\n\nChaques routes qui touche un batiment se vois attribué une un ID dans une liste qui correspond à une instance spécifique\nDe ce fait chaques routes à côté d'une autre partage les valeurs qu'elle as avec les autres routes à côté.\n\nOU\n\nLes batiments partagent leur ID au routes à proximité.\nPour chaques route a coté d'un batiment, on copie l'ID du batiment dans les variables de la route, ",
+      "comment2": ""
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "PathfindingBehavior::SetDestination"
+          },
+          "parameters": [
+            "TEST",
+            "Pathfinding",
+            "",
+            "Maison.X()",
+            "Maison.Y()"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    },
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "PathfindingBehavior::DestinationReached"
+          },
+          "parameters": [
+            "TEST",
+            "Pathfinding"
+          ],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "SceneBackground"
+          },
+          "parameters": [
+            "",
+            "\"15;0;0\""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "associatedLayout": "Game",
+  "lastChangeTimeStamp": 0,
+  "name": "Core_initialisation_joueur",
+  "events": [
+    {
+      "disabled": false,
+      "folded": false,
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "DepartScene"
+          },
+          "parameters": [
+            ""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": [],
+          "subInstructions": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarGlobalTxt"
+          },
+          "parameters": [
+            "type_partie",
+            "=",
+            "\"Solo\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarGlobalTxt"
+          },
+          "parameters": [
+            "mouse.focus",
+            "=",
+            "\"null\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarGlobalTxt"
+          },
+          "parameters": [
+            "mouse.pressed",
+            "=",
+            "\"null\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarGlobalTxt"
+          },
+          "parameters": [
+            "mouse.x",
+            "=",
+            "\"null\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarGlobalTxt"
+          },
+          "parameters": [
+            "mouse.y",
+            "=",
+            "\"null\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarGlobalTxt"
+          },
+          "parameters": [
+            "mode",
+            "=",
+            "\"null\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarGlobalTxt"
+          },
+          "parameters": [
+            "type_construction",
+            "=",
+            "\"null\""
+          ],
+          "subInstructions": []
+        },
+        {
+          "type": {
+            "inverted": false,
+            "value": "ModVarGlobalTxt"
+          },
+          "parameters": [
+            "user_action",
+            "=",
+            "\"null\""
+          ],
+          "subInstructions": []
+        }
+      ],
+      "events": []
+    }
+  ]
+}

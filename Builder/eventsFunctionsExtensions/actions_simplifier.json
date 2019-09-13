@@ -1,0 +1,820 @@
+{
+  "author": "Bouh",
+  "description": "Actions_simplifier",
+  "extensionNamespace": "",
+  "fullName": "Actions_simplifier",
+  "name": "Actions_simplifier",
+  "shortDescription": "Actions_simplifier",
+  "tags": "",
+  "version": "0.1.0",
+  "eventsFunctions": [
+    {
+      "description": "Emplacement de construction disponible",
+      "fullName": "Emplacement de construction disponible",
+      "functionType": "Condition",
+      "name": "Bouton_build",
+      "sentence": "L'utilisateur clique pour construire : _PARAM1_",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "BuiltinCommonInstructions::And"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "SourisBouton"
+                  },
+                  "parameters": [
+                    "",
+                    "Left"
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Actions_simplifier::Check_mode"
+                  },
+                  "parameters": [
+                    "",
+                    "\"build\"",
+                    ""
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Actions_simplifier::Check_type_construction"
+                  },
+                  "parameters": [
+                    "",
+                    "GetArgumentAsString(\"Batiment_to_build\")",
+                    ""
+                  ],
+                  "subInstructions": []
+                }
+              ]
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "BuiltinCommonInstructions::Not"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "SourisSurObjet"
+                  },
+                  "parameters": [
+                    "GRP_boutons",
+                    "",
+                    "",
+                    ""
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "SourisSurObjet"
+                  },
+                  "parameters": [
+                    "GRP_batiments",
+                    "",
+                    "",
+                    ""
+                  ],
+                  "subInstructions": []
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Type batiment (Maison, Ferme)",
+          "name": "Batiment_to_build",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "string"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "batiments_GRP",
+          "name": "GRP_batiments",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "objectList"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "boutons_GRP",
+          "name": "GRP_boutons",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "objectList"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Constuction d'un batiment",
+      "fullName": "Constuction d'un batiment",
+      "functionType": "Action",
+      "name": "Construction_batiment",
+      "sentence": "Construire _PARAM1_ sous le curseur",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": [],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "Batiment_to_build",
+                "MouseX(, )-(GlobalVariable(gridSize)/2)",
+                "MouseY(, )-(GlobalVariable(gridSize)/2)",
+                "\"Build\""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "SnapToGrid::SnapObjectToVirtualGrid"
+              },
+              "parameters": [
+                "",
+                "Batiment_to_build",
+                "64",
+                "64",
+                ""
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Type batiment (Maison, Ferme)",
+          "name": "Batiment_to_build",
+          "optional": false,
+          "supplementaryInformation": "Sprite",
+          "type": "objectList"
+        }
+      ],
+      "objectGroups": [
+        {
+          "name": "batiments_GRP",
+          "objects": [
+            {
+              "name": "Maison"
+            },
+            {
+              "name": "Ferme"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Faire une fois au debut de la scene",
+      "fullName": "Once at beginning of scene",
+      "functionType": "Condition",
+      "name": "Au_debut_de_la_scene_une_fois",
+      "sentence": "Faire une fois au debut de la scene",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": [],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Centre un objet en fonction d'une hauteur",
+      "fullName": "Centre un objet en hauteur",
+      "functionType": "Action",
+      "name": "Center_un_objet_hauteur",
+      "sentence": "Centre l'objet _PARAM1_ sur la hauteur de _PARAM2_",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "MettreY"
+              },
+              "parameters": [
+                "objet",
+                "=",
+                "(GetArgumentAsNumber(\"hauteur\")/2)-(objet.Width()/2)"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Objet à centrer",
+          "name": "objet",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "objectList"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Largeur sur laquel on se centre",
+          "name": "hauteur",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Centre un objet en fonction d'une largeur",
+      "fullName": "Centre un objet en largeur",
+      "functionType": "Action",
+      "name": "Center_un_objet_largeur",
+      "sentence": "Centre l'objet _PARAM1_ sur la largeur de _PARAM2_",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "MettreX"
+              },
+              "parameters": [
+                "objet",
+                "=",
+                "(GetArgumentAsNumber(\"largeur\")/2)-(objet.Width()/2)"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Objet à centrer",
+          "name": "objet",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "objectList"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Largeur sur laquel on se centre",
+          "name": "largeur",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Change le point de pivot de l'objet",
+      "fullName": "",
+      "functionType": "Action",
+      "name": "Changer_pivot",
+      "sentence": "Change pivot point of _PARAM1_ to _PARAM2_ ; _PARAM3_",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "var object = runtimeScene.getObjects(\"object\"); // Get all the objects called \"BOUH\"\n\nvar object = eventsFunctionContext.getObjects(\"objet\");\nvar object_renderer = object[0].getRendererObject(); //Get the renderer (PIXI sprite) for the only first object called \"BOUH\"\nobject_renderer.pivot.x = eventsFunctionContext.getArgument(\"pivot_X\");\nobject_renderer.pivot.y = eventsFunctionContext.getArgument(\"pivot_Y\");",
+          "parameterObjects": "",
+          "useStrict": true
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Objet",
+          "name": "objet",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "objectList"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Nouvelle position du pivot en X.",
+          "name": "pivot_X",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        },
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Nouvelle position du pivot en Y.",
+          "name": "pivot_Y",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "expression"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Vérifie le type de construction (maison, ferme, etc)",
+      "fullName": "Vérifie le type de construction",
+      "functionType": "Condition",
+      "name": "Check_type_construction",
+      "sentence": "Si type de construction est _PARAM1_",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "",
+          "comment2": ""
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "StrEqual"
+              },
+              "parameters": [
+                "GlobalVariableString(type_construction)",
+                "=",
+                "GetArgumentAsString(\"type_construction\")"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Type de construction (Maison, Ferme, etc)",
+          "name": "type_construction",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "string"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Change le type de construction (maison, ferme, etc)",
+      "fullName": "Change le type de construction",
+      "functionType": "Action",
+      "name": "Changer_type_construction",
+      "sentence": "Changer par le type de construction _PARAM1_",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "",
+          "comment2": ""
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarGlobalTxt"
+              },
+              "parameters": [
+                "type_construction",
+                "=",
+                "GetArgumentAsString(\"type_construction\")"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Type de construction (maison, ferme, etc)",
+          "name": "type_construction",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "string"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Vérifie le mode  (Construction, amélioration, démolition)",
+      "fullName": "Vérifie le mode",
+      "functionType": "Condition",
+      "name": "Check_mode",
+      "sentence": "Si le mode est _PARAM1_",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "",
+          "comment2": ""
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "StrEqual"
+              },
+              "parameters": [
+                "GlobalVariableString(mode)",
+                "=",
+                "GetArgumentAsString(\"mode\")"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Mode (Construction, amélioration, démolition)",
+          "name": "mode",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "string"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Change le mode  (build, upgrade, demolition)",
+      "fullName": "Change le mode",
+      "functionType": "Action",
+      "name": "Changer_mode",
+      "sentence": "Changer par le mode _PARAM1_",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "",
+          "comment2": ""
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarGlobalTxt"
+              },
+              "parameters": [
+                "mode",
+                "=",
+                "GetArgumentAsString(\"mode\")"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Mode (Construction, amélioration, démolition)",
+          "name": "mode",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "string"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Vérifie le mode  (Construction, amélioration, démolition)",
+      "fullName": "Vérifie le mode",
+      "functionType": "Condition",
+      "name": "WIP_Check_user_action",
+      "sentence": "Si le mode est _PARAM1_",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "",
+          "comment2": ""
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "StrEqual"
+              },
+              "parameters": [
+                "GlobalVariableString(mode)",
+                "=",
+                "GetArgumentAsString(\"mode\")"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Mode (construction, amélioration, démolition)",
+          "name": "mode",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "string"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Change le type de construction (maison, ferme, etc)",
+      "fullName": "Change le type de construction",
+      "functionType": "Action",
+      "name": "WIP_Changer_user_action",
+      "sentence": "Changer par le type de construction _PARAM1_",
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "",
+          "comment2": ""
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "ModVarGlobalTxt"
+              },
+              "parameters": [
+                "type_construction",
+                "=",
+                "GetArgumentAsString(\"type_construction\")"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        }
+      ],
+      "parameters": [
+        {
+          "codeOnly": false,
+          "defaultValue": "",
+          "description": "Type de construction (maison, ferme, etc)",
+          "name": "user_action",
+          "optional": false,
+          "supplementaryInformation": "",
+          "type": "string"
+        }
+      ],
+      "objectGroups": []
+    }
+  ],
+  "eventsBasedBehaviors": [
+    {
+      "description": "",
+      "fullName": "",
+      "name": "MyBehavior",
+      "objectType": "",
+      "eventsFunctions": [],
+      "propertyDescriptors": []
+    }
+  ]
+}

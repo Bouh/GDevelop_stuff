@@ -4,9 +4,13 @@ Splahscreen_custom_1 :
 
 ## Install
 - Copy *gd-splash-image.js* and *pixi-renderers* in a exported game.
+
 OR
+
 - Copy the files in your folder used for build your own game in local. ()
+
 Windows: ```C:\Users\RTX-Bouh\AppData\Local\Programs\gdevelop\resources\GDJS\Runtime\```
+
 MacOS: ```/Applications/GDevelop\ 5.app/Contents/Resources/GDJS/Runtime/```
 
 

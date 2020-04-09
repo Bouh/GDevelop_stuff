@@ -1,4 +1,4 @@
-Splahscreen_custom_1 :
+Splahscreen_custom_1:
 ![splahscreen_custom_1](https://raw.githubusercontent.com/Bouh/GDevelop_stuff/master/files_for_readme/splahscreen_custom_1.png)
 
 
@@ -27,4 +27,5 @@ Contain the graphics shown during the loading.
 You can use PixiJS for add your own text, image, etc.. 
 
 
+Splashscreen found on the roadmap of (GDevelop)[https://trello.com/c/VY8dyDbk/162-update-the-splashscreen-of-games-with-a-better-looking-one]
 

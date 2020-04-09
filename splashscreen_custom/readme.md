@@ -8,9 +8,11 @@ Splahscreen_custom_1 :
 ## How it works 
 
 *gd-splash-image.js*
+
 Contains two image in base64 format used in ```pixi-renderers/loadingscreen-pixi-renderer.js```
 
 
 *pixi-renderers/loadingscreen-pixi-renderer.js*
+
 Contain the graphics shown during the loading.
 You can use PixiJS for add your own text, image, etc.. 

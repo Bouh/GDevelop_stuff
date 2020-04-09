@@ -7,7 +7,7 @@ Splahscreen_custom_1 :
 
 OR
 
-- Copy the files in your folder used for build your own game in local. ()
+- Copy the files in your folder used for build your own game in local.
 
 Windows: ```C:\Users\RTX-Bouh\AppData\Local\Programs\gdevelop\resources\GDJS\Runtime\```
 

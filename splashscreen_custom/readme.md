@@ -27,5 +27,5 @@ Contain the graphics shown during the loading.
 You can use PixiJS for add your own text, image, etc.. 
 
 
-Splashscreen found on the roadmap of [GDevelop](https://trello.com/c/VY8dyDbk/162-update-the-splashscreen-of-games-with-a-better-looking-one) .
+Mockup of splashscreens found on the roadmap of [GDevelop](https://trello.com/c/VY8dyDbk/162-update-the-splashscreen-of-games-with-a-better-looking-one) .
 

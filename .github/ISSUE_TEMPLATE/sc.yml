@@ -1,6 +1,6 @@
 name: 🐞 Bug
 description: File a bug/issue
-title: "[BUG] <test>"
+title: "[BUG] <kkkkk>"
 labels: [Bug]
 body:
 - type: checkboxes
